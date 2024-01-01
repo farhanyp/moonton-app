@@ -49,10 +49,10 @@ export default function FeaturedMovie({
                     <img src="/icons/ic_play.svg" width="50" alt="" />
                 </div>
             </div>
-            {/* <Link
-                href={route("user.dashboard.movie.show", slug)}
+            <Link
+                href={route("prototype.movie.show",slug)}
                 className="inset-0 absolute z-50"
-            ></Link> */}
+            ></Link>
         </div>
     );
 }
