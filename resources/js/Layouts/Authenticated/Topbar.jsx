@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Link } from "@inertiajs/react";
+import {Link} from '@inertiajs/react'
 
 export default function Topbar({ name }) {
     const [dropdownOpen, setDropdownOpen] = useState(true);
@@ -37,7 +37,7 @@ export default function Topbar({ name }) {
                         />
                     </div>
                     <div
-                        className="bg-white rounded-2xl text-black font-medium flex-col gap-1 absolute z-[999] right-0 top-[80px] min-w-[180px] hidden overflow-hidden"
+                        className="bg-white rounded-2xl text-black font-medium flex flex-col gap-1 absolute z-[999] right-0 top-[80px] min-w-[180px] hidden overflow-hidden"
                         ref={dropdownTarget}
                     >
                         <a
