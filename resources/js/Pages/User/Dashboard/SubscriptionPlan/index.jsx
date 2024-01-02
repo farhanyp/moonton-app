@@ -3,7 +3,7 @@ import SubscriptionCard from "@/Components/SubscriptionCard";
 import { router } from '@inertiajs/react'
 import { Head } from "@inertiajs/react";
 
-export default function SubscriptionPlan({ auth, subscriptionPlans, env }) {
+export default function SubscriptionPlan({ auth, subscriptionPlans, userSubscription, env }) {
     const selectSubscription = (id) => {
         router.post( route("user.dashboard.subscriptionPlan.userSubscribe", { subscriptionPlan: id,}),
             {},
@@ -16,30 +16,30 @@ export default function SubscriptionPlan({ auth, subscriptionPlans, env }) {
         );
     };
 
-    // const onSnapMidtrans = (userSubscription) => {
-    //     snap.pay(userSubscription.snap_token, {
-    //         // Optional
-    //         onSuccess: function (result) {
-    //             Inertia.visit(route("user.dashboard.index"));
-    //         },
-    //         // Optional
-    //         onPending: function (result) {
-    //             console.log({ result });
-    //         },
-    //         // Optional
-    //         onError: function (result) {
-    //             console.log({ result });
-    //         },
-    //     });
-    // };
+    const onSnapMidtrans = (userSubscription) => {
+        snap.pay(userSubscription.snap_token, {
+            // Optional
+            onSuccess: function (result) {
+                router.visit(route("user.dashboard.index"));
+            },
+            // Optional
+            onPending: function (result) {
+                console.log({ result });
+            },
+            // Optional
+            onError: function (result) {
+                console.log({ result });
+            },
+        });
+    };
 
     return (
         <Authenticated auth={auth}>
             <Head title="Subscription Plan">
-                {/* <script
+                <script
                     src="https://app.sandbox.midtrans.com/snap/snap.js"
                     data-client-key={env.MIDTRANS_CLIENTKEY}
-                ></script> */}
+                ></script>
             </Head>
             <div className="py-20 flex flex-col items-center">
                 <div className="text-black font-semibold text-[26px] mb-3">
