@@ -4,6 +4,7 @@ import FlashMessage from "@/Components/FlashMessage";
 import { Link, Head, useForm } from "@inertiajs/react";
 
 export default function Index({ auth, flashMessage, movies }) {
+    console.log(movies)
     const { delete: destroy, put } = useForm();
     return (
         <Authenticated auth={auth}>
@@ -27,7 +28,7 @@ export default function Index({ auth, flashMessage, movies }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {movies.map((movie) => (
+                    {movies?.map((movie) => (
                         <tr key={movie.id}>
                             <td>
                                 <img
@@ -45,9 +46,9 @@ export default function Index({ auth, flashMessage, movies }) {
                                         movie.id
                                     )}
                                 >
-                                    <Button type="button" variant="warning">
+                                    <PrimaryButton type="button" variant="warning">
                                         Edit
-                                    </Button>
+                                    </PrimaryButton>
                                 </Link>
                             </td>
                             <td>
@@ -76,7 +77,7 @@ export default function Index({ auth, flashMessage, movies }) {
                                 </div>
                             </td>
                         </tr>
-                    ))} */}
+                    ))}
                 </tbody>
             </table>
         </Authenticated>
