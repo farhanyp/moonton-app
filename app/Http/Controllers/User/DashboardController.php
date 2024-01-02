@@ -9,8 +9,7 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-    public function index(){
-
+    public function index(){        
         $featuredMovies = Movie::whereIsFeatured(true)->get();
         $movies = Movie::get();
 
