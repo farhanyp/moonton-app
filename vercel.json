@@ -1,6 +1,16 @@
 {
     "version": 2,
     "framework": null,
+    "builds": [
+        {
+          "src": "api/index.php",
+          "use": "@vercel/php"
+        },
+        {
+          "src": "package.json",
+          "use": "@vercel/node"
+        }
+      ],
     "routes": [
         { "src": "/build/(.*)", "dest": "/public/build/" },
         { "src": "/(.*)", "dest": "/api/index.php" }
