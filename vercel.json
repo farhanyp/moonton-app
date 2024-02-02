@@ -2,24 +2,13 @@
     "version": 2,
     "framework": null,
     "functions": {
-        "api/index.php": {
-            "runtime": "vercel-php@0.6.0"
-        }
+        "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
-        { 
-            "src": "/(.*)\\.(?!well-known)(.*)", 
-            "dest": "/public/$1.$2",
-            "headers": {
-                "cache-control": "s-maxage=31536000,immutable"
-            }
-        },
-        { 
-            "src": "/(.*)",
-            "dest": "/public/index.php"
-        }
+        { "src": "/build/(.*)", "dest": "/public/build/" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
     ],
-    "public": false,
+    "public": true,
     "buildCommand": "vite build",
     "outputDirectory": "public",
     "env": {
